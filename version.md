@@ -1,6 +1,11 @@
 # Version Information
 
 ## Current Version
+- **Version**: 1.0.1
+- **Release Date**: 2026-02-08
+
+
+## History Version
 - **Version**: 1.0.0
 - **Release Date**: 2026-02-08
 

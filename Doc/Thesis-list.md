@@ -1,5 +1,5 @@
 
-1 Attention Is All You Need (Vaswani et al., 2017) 《注意力就是你需要的一切》 Transformer 原论文。系统介绍了自注意力、多头注意力以及编码器-解码器架构（尽管现代大多数大语言模型采用 decoder-only 结构）。 
+1 Attention Is All You Need (Vaswani et al., 2017) 《注意力就是你需要的一切》 Transformer 原论文.系统介绍了自注意力,多头注意力以及编码器-解码器架构（尽管现代大多数大语言模型采用 decoder-only 结构）. 
 
 
 2 The Illustrated Transformer (Jay Alammar, 2018) 《图解 Transformer》 极佳的直觉构建材料，帮助在阅读实现代码前深入理解注意力机制和张量流动。
@@ -50,9 +50,12 @@
 
 25 GLaM: Efficient Scaling of Language Models with Mixture-of-Experts (Du et al., 2022) 《GLaM：专家混合高效大型语言模型》 用极大量总参数但少量活跃参数验证 MoE 缩放的经济性。
 
-26 The Smol Training Playbook (Hugging Face, 2025) 《Smol 训练手册》 高效训练语言模型的端到端实用指南。
+
+
 
 附加阅读材料
+ • The Smol Training Playbook (Hugging Face, 2025) 《Smol 训练手册》 高效训练语言模型的端到端实用指南.
+
 • T5: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (Raffel et al., 2019) 《T5：用统一的文本到文本 Transformer 探索迁移学习的极限》
 
 • Toolformer: Language Models Can Teach Themselves to Use Tools (Schick et al., 2023) 《Toolformer：语言模型通过 API 调用自学工具》
