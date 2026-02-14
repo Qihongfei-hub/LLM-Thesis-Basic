@@ -1,5 +1,18 @@
 # Version ContentInformation
 
+## Version-main
+- **Version**: 5.1.1 on main
+- **Release Date**: 2026-02-14
+
+- **Content**:
+  - Language Models are Few-Shot Learners (Brown et al., 2020) pdf
+  - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+  - Transformer (Vaswani et al., 2017) 论文
+  - Attention Is All You Need (Vaswani et al., 2017) 论文
+
+- **GAIR**:s
+
+
 
 ## Version-main
 - **Version**: 4.1.1 on main

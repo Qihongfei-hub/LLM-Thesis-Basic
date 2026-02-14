@@ -1,5 +1,9 @@
 # Version Information
 
+## Version-main
+- **Version**: 45.1.1 on main 
+- **Release Date**: 2026-02-18
+
 
 ## Version-main
 - **Version**: 4.1.1 on Trunk
