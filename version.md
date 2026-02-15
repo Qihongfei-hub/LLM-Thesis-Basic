@@ -1,6 +1,11 @@
 # Version Information
 
 ## Version-main
+- **Version**: 6.1.1 on main 
+- **Release Date**: 2026-02-15
+
+
+## Version-main
 - **Version**: 5.1.1 on main 
 - **Release Date**: 2026-02-14
 
