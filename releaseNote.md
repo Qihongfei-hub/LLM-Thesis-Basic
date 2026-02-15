@@ -14,7 +14,8 @@
 - **minllama-assignment-master**:
 
 - **LLM Practice**:
-
+- https://www.jiqizhixin.com/articles/2024-04-06
+-
 
 ## Version-main
 - **Version**: 5.1.1 on main
