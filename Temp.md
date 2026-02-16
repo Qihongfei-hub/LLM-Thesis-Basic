@@ -7,6 +7,12 @@
 
 
 
+## LLM Practice
+https://www.modelscope.cn/models/LLM-Research/Meta-Llama-3.1-8B-Instruct
+https://www.jiqizhixin.com/articles/2024-04-06
+
+
+
 !swift sft --model_id_or_path ./LLM-Research/Meta-Llama-3___1-8B-Instruct \
     --model_type llama3_1-8b-instruct \
     --sft_type lora \
