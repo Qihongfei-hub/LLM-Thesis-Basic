@@ -72,7 +72,7 @@ def create_data(filename, tokenizer: Tokenizer, flag: str ='train', lower: bool 
 	num_labels = {}
 	data = []
 
-	with open(filename, 'r') as fp:
+	with open(filename, 'r', encoding='utf-8') as fp:
 		for line in fp:
 			label, org_sent = line.split(' ||| ')
 			if lower:
@@ -131,7 +131,7 @@ def save_model(model, optimizer, args, config, filepath):
 	print(f"save the model to {filepath}")
 
 def train(args):
-	device = torch.device('cuda') if args.use_gpu else torch.device('cpu')
+	device = torch.device('cuda') if args.use_gpu and torch.cuda.is_available() else torch.device('cpu')
 	#### Load data
 	# create the data and its corresponding datasets and dataloader
 	tokenizer = Tokenizer(args.max_sentence_len)
@@ -165,6 +165,8 @@ def train(args):
 	best_dev_acc = 0
 
 	## run for the specified number of epochs
+	###train the model for the specified number of epochs
+	
 	for epoch in tqdm(range(args.epochs)):
 		model.train()
 		train_loss = 0
@@ -198,8 +200,9 @@ def train(args):
 
 def generate_sentence(args, prefix, outfile, max_new_tokens = 75, temperature = 0.0):
 	with torch.no_grad():
-		device = torch.device('cuda') if args.use_gpu else torch.device('cpu')
-		ctx = torch.amp.autocast(device_type="cuda", dtype=torch.float32) if args.use_gpu else nullcontext()
+		cuda_available = args.use_gpu and torch.cuda.is_available()
+		device = torch.device('cuda') if cuda_available else torch.device('cpu')
+		ctx = torch.amp.autocast(device_type="cuda", dtype=torch.float32) if cuda_available else nullcontext()
 		llama = load_pretrained(args.pretrained_model_path)
 		llama = llama.to(device)
 		print(f"load model from {args.pretrained_model_path}")
@@ -216,13 +219,13 @@ def generate_sentence(args, prefix, outfile, max_new_tokens = 75, temperature = 
 				print(f"Temperature is {temperature}")
 				print(sentence)
 				print('---------------')
-				writer = open(outfile, 'w')
+				writer = open(outfile, 'w', encoding='utf-8')
 				writer.write(sentence)
 				print(f"Wrote generated sentence to {outfile}.")
 				writer.close()
 
 def write_predictions_to_file(split: str, outfile: str, acc: float, pred: list[str], sents: list[str]):
-	with open(outfile, "w+") as f:
+	with open(outfile, "w+", encoding='utf-8') as f:
 		print(f"{split} acc :: {acc :.3f}")
 		for s, p in zip(sents, pred):
 			f.write(f"{p} ||| {s}\n")
@@ -233,11 +236,11 @@ def test_with_prompting(args):
 
 	with torch.no_grad():
 
-		device = torch.device('cuda') if args.use_gpu else torch.device('cpu')
+		device = torch.device('cuda') if args.use_gpu and torch.cuda.is_available() else torch.device('cpu')
 		#### Load data
 		# create the data and its corresponding datasets and dataloader
 		tokenizer = Tokenizer(args.max_sentence_len)
-		label_names = json.load(open(args.label_names, 'r'))
+		label_names = json.load(open(args.label_names, 'r', encoding='utf-8'))
 		_, num_labels = create_data(args.train, tokenizer, 'train')
 
 		#### Init model
@@ -275,7 +278,7 @@ def test(args):
 	assert args.dev_out.endswith("dev-finetuning-output.txt"), 'For saving finetuning results, please set the dev_out argument as "<dataset>-dev-finetuning-output.txt"'
 	assert args.test_out.endswith("test-finetuning-output.txt"), 'For saving finetuning results, please set the test_out argument as "<dataset>-test-finetuning-output.txt"'
 	with torch.no_grad():
-		device = torch.device('cuda') if args.use_gpu else torch.device('cpu')
+		device = torch.device('cuda') if args.use_gpu and torch.cuda.is_available() else torch.device('cpu')
 		saved = torch.load(args.filepath)
 		config = saved['model_config']
 		model = LlamaEmbeddingClassifier(config)

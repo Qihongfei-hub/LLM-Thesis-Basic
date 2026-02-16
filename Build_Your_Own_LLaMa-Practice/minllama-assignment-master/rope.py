@@ -50,10 +50,6 @@ def apply_rotary_emb(
 
     _, seqlen, _, _ = query.shape
     device = query.device
-    # todo
-    #
-    # Please refer to slide 22 in https://phontron.com/class/anlp2024/assets/slides/anlp-05-transformers.pdf
-    # and Section 3 in https://arxiv.org/abs/2104.09864.
 
     # reshape xq and xk to match the complex representation
     query_real, query_imag = query.float().reshape(query.shape[:-1] + (-1, 2)).unbind(-1)
@@ -63,13 +59,33 @@ def apply_rotary_emb(
 
     # First, compute the trigonometric values in the second and fourth columns in
     # slide 22 (linked above).
+    # Compute frequencies using head_dim directly
+    inv_freq = 1.0 / (theta ** (torch.arange(0, head_dim, 2, device=device).float() / head_dim))
+    # Compute positions
+    positions = torch.arange(seqlen, device=device).float()
+    # Compute frequency matrix
+    freqs = torch.outer(positions, inv_freq)
+    # Compute cosine and sine values
+    cos_freqs = torch.cos(freqs)
+    sin_freqs = torch.sin(freqs)
+
+    # Reshape for broadcasting
+    # The shape should be (1, seqlen, 1, -1) to match the query/key shape (batch_size, seqlen, n_heads, dim)
+    cos_freqs = cos_freqs.view(1, seqlen, 1, -1)
+    sin_freqs = sin_freqs.view(1, seqlen, 1, -1)
 
     # Then, combine these trigonometric values with the tensors query_real, query_imag,
     # key_real, and key_imag.
+    # Apply rotation to query
+    query_out_real = query_real * cos_freqs - query_imag * sin_freqs
+    query_out_imag = query_real * sin_freqs + query_imag * cos_freqs
+    # Apply rotation to key
+    key_out_real = key_real * cos_freqs - key_imag * sin_freqs
+    key_out_imag = key_real * sin_freqs + key_imag * cos_freqs
 
-    raise NotImplementedError
+    # Reshape back to original shape
+    query_out = torch.stack([query_out_real, query_out_imag], dim=-1).reshape(query.shape)
+    key_out = torch.stack([key_out_real, key_out_imag], dim=-1).reshape(key.shape)
 
-    query_out = None
-    key_out = None
     # Return the rotary position embeddings for the query and key tensors
-    return query_out, key_out
+    return query_out.type_as(query), key_out.type_as(key)

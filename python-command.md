@@ -1,4 +1,4 @@
-conda activate my_project_env
+conda activate my_project_env  => conda activate llama_hw
 pip freeze > requirements.txts
 pip install -r requirements.txt
 

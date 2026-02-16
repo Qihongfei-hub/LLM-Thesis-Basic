@@ -78,6 +78,8 @@ You should see continuations of the sentence `I have wanted to see this thriller
 Zero-Shot Prompting for SST:
 
 `python run_llama.py --option prompt --batch_size 10  --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt --label-names data/sst-label-mapping.json --dev_out sst-dev-prompting-output.txt --test_out sst-test-prompting-output.txt [--use_gpu]`
+or 
+`python run_llama.py --option prompt --batch_size 64  --train data/sst-train.txt --dev data/sst-dev.txt --test data/sst-test.txt --label-names data/sst-label-mapping.json --dev_out sst-dev-prompting-output.txt --test_out sst-test-prompting-output.txt --use_gpu` 
 
 Prompting for SST:
 Dev Accuracy: 0.213 (0.000)
