@@ -1,4 +1,7 @@
-
+(base) PS C:\Users\hongf\LLM-Thesis-Basic> git fetch origin
+(base) PS C:\Users\hongf\LLM-Thesis-Basic> git reset origin/main
+(base) PS C:\Users\hongf\LLM-Thesis-Basic> git add .
+(base) PS C:\Users\hongf\LLM-Thesis-Basic> git status
 
 
 
