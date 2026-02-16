@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer
+pip-wheel-metadata/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment
+.env
+.venv
+venv/
+env/
+env.bak/
+tmp/
+temp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LLM specific
+models/
+datasets/
+checkpoints/
+logs/
+outputs/
+
+# Large files
+*.h5
+*.pt
+*.pth
+*.bin
+*.ckpt
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+
+# Documentation
+_site/
+
+# Testing
+.pytest_cache/
+.tox/
+coverage/
+
+# Local configuration
+local_settings.py
+
+# Secrets
+*.secret
+*.key
+*.pem
+
+# Cached files
+.cache/
+.parquet/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
