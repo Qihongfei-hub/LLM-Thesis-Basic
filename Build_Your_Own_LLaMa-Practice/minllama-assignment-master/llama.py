@@ -79,7 +79,8 @@ class Attention(nn.Module):
         self.attn_dropout = nn.Dropout(config.dropout)
         self.resid_dropout = nn.Dropout(config.dropout)
         self.dropout = config.dropout
-
+    
+    #decode only, no cross attention 
     def compute_query_key_value_scores(self,
                                        query: torch.Tensor,
                                        key: torch.Tensor,
