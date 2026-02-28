@@ -16,6 +16,8 @@ import torch
 import torch.nn as nn
 from torch import Tensor
 
+#文件实现了一套完整的工具函数集，主要用于 Hugging Face 模型的下载、缓存管理和模型处理
+
 __version__ = "4.0.0"
 _torch_version = importlib_metadata.version("torch")
 
