@@ -1,6 +1,32 @@
 # Version ContentInformation
 
 ## Version-main
+- **Version**: 7.1.1 on main
+- **Release Date**: 2026-02-28
+
+- **Content**:
+  - Language Models are Few-Shot Learners (Brown et al., 2020) pdf
+  - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+  - Transformer (Vaswani et al., 2017) 论文
+  - Attention Is All You Need (Vaswani et al., 2017) 论文
+  -others
+   - Quality is All You Need for Chinese Instruction Fine-tuning.pdf
+  -AI_Technical_Doc
+
+
+- **GAIR**:
+- **minllama-assignment-master**
+  -minllama-assignment-master
+   -homework: contain original file
+   
+- **LLM Practice**:
+- https://www.jiqizhixin.com/articles/2024-04-06
+-
+
+
+
+
+## Version-main
 - **Version**: 6.1.1 on main
 - **Release Date**: 2026-02-16
 
