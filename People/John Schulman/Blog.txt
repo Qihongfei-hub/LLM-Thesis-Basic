@@ -1,0 +1,22 @@
+http://joschu.net/
+
+John Schulman's Homepage
+I’m cofounder and chief scientist at Thinking Machines.
+
+Before this, I spent some time at Anthropic, doing research on the Alignment Science team.
+
+Before that, I was a cofounder of OpenAI, where I led the creation of ChatGPT, and from 2022-2024 I co-led the post-training team, which developed models for ChatGPT and the OpenAI API.
+
+I received my PhD in Computer Science from UC Berkeley, where I had the good fortune of being advised by Pieter Abbeel, and I worked on robotics and reinforcement learning. Before that, I did a brief stint in neuroscience at Berkeley, and before that, I studied physics at Caltech.
+
+Blog
+Publications
+Presentations
+Code
+Awards
+
+
+
+http://joschu.net/presentations.html     
+
+http://joschu.net/publications.html      论文    ###
